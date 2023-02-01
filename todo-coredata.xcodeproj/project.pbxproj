@@ -13,7 +13,6 @@
 		887B7A8F298AB3F2001F86F0 /* todo_coredata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 887B7A8D298AB3F2001F86F0 /* todo_coredata.xcdatamodeld */; };
 		887B7A91298AB3F4001F86F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 887B7A90298AB3F4001F86F0 /* Assets.xcassets */; };
 		887B7A94298AB3F4001F86F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 887B7A92298AB3F4001F86F0 /* LaunchScreen.storyboard */; };
-		887B7A9C298AB541001F86F0 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B7A9B298AB541001F86F0 /* Memo.swift */; };
 		887B7A9F298AB65A001F86F0 /* MemoData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B7A9D298AB65A001F86F0 /* MemoData+CoreDataClass.swift */; };
 		887B7AA0298AB65A001F86F0 /* MemoData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B7A9E298AB65A001F86F0 /* MemoData+CoreDataProperties.swift */; };
 		88A735E1298B2DB5009745DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A735E0298B2DB5009745DC /* ViewController.swift */; };
@@ -29,7 +28,6 @@
 		887B7A90298AB3F4001F86F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		887B7A93298AB3F4001F86F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		887B7A95298AB3F4001F86F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		887B7A9B298AB541001F86F0 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		887B7A9D298AB65A001F86F0 /* MemoData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		887B7A9E298AB65A001F86F0 /* MemoData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		88A735E0298B2DB5009745DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 				887B7A86298AB3F2001F86F0 /* SceneDelegate.swift */,
 				887B7A90298AB3F4001F86F0 /* Assets.xcassets */,
 				887B7A92298AB3F4001F86F0 /* LaunchScreen.storyboard */,
-				887B7A9B298AB541001F86F0 /* Memo.swift */,
 				887B7A95298AB3F4001F86F0 /* Info.plist */,
 				88A735E2298B2DED009745DC /* Models */,
 				887B7AA1298B21CE001F86F0 /* Views */,
@@ -184,7 +181,6 @@
 				88A735E1298B2DB5009745DC /* ViewController.swift in Sources */,
 				887B7A87298AB3F2001F86F0 /* SceneDelegate.swift in Sources */,
 				88A735E4298B2E0A009745DC /* CoreDataManager.swift in Sources */,
-				887B7A9C298AB541001F86F0 /* Memo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
