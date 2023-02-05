@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IRD-YI-89U">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="155" width="393" height="663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="128" id="NRp-lu-Lkx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="128" id="NRp-lu-Lkx" customClass="ToDoCell" customModule="todo_coredata" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NRp-lu-Lkx" id="cDm-Rh-xKM">
@@ -57,7 +57,7 @@
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
                                                                     <connections>
-                                                                        <segue destination="r3m-Ad-QvU" kind="show" id="CoQ-8p-UXg"/>
+                                                                        <segue destination="r3m-Ad-QvU" kind="show" identifier="ToDoCell" id="CoQ-8p-UXg"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -82,6 +82,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="6ua-CG-ifs" secondAttribute="trailing" constant="30" id="zkq-gY-W7N"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="background" destination="cDm-Rh-xKM" id="d0n-H4-ohL"/>
+                                            <outlet property="dateTextLabel" destination="tzK-0m-hcd" id="VpD-Dm-ufe"/>
+                                            <outlet property="toDoTextLabel" destination="Mud-f5-0Wq" id="0kk-Xs-n0W"/>
+                                            <outlet property="updateButton" destination="o4R-Rg-RiO" id="T4t-pB-rKw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -104,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="1063.3587786259541" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="rbS-LU-1s1">
             <objects>
-                <viewController id="r3m-Ad-QvU" sceneMemberID="viewController">
+                <viewController id="r3m-Ad-QvU" customClass="DetailViewController" customModule="todo_coredata" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="feT-Ej-9N6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,6 +193,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hFd-GV-qI9"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="NSp-gZ-PUG" id="8zS-yE-zUv"/>
+                        <outlet property="blueButton" destination="xTb-Ya-88o" id="GWI-Tf-QaS"/>
+                        <outlet property="greenButton" destination="dpE-kt-Px7" id="urK-9i-gNf"/>
+                        <outlet property="mainTextView" destination="zv8-US-gVC" id="PFm-ga-for"/>
+                        <outlet property="purpleButton" destination="cpp-9p-5dq" id="ZtS-jC-AUb"/>
+                        <outlet property="redButton" destination="ATN-iZ-bn1" id="j8f-2f-Jnz"/>
+                        <outlet property="saveButton" destination="zka-kE-XWZ" id="D4M-Qv-0bM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nx1-tw-Ee0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
