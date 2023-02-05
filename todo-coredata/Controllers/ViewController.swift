@@ -21,6 +21,11 @@ class ViewController: UIViewController {
         setupTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func setupNavigationBar(){
         self.title = "메모"
         
@@ -30,6 +35,7 @@ class ViewController: UIViewController {
     
     func setupTableView(){
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.separatorStyle = .none
         
     }
@@ -59,6 +65,25 @@ extension ViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell", for: indexPath)
+        
+        // cell 그리는 코드 추가 필요
         return UITableViewCell()
+    }
+}
+
+extension ViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ToDoCell", sender: indexPath)
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+//        if segue.identifier == "ToDoCell"{
+//
+//        }
+//    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
