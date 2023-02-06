@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     }
     
     @objc func plusButtonTapped(){
-        print("데이터 추가!")
+        performSegue(withIdentifier: "ToDoCell", sender: nil)
     }
     
 
@@ -61,14 +61,23 @@ class ViewController: UIViewController {
 // 데이터소스 추후 정의 필요
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        
+        return toDoManager.getTodoFromCoreData().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell", for: indexPath) as! ToDoCell
+        let todoData = toDoManager.getTodoFromCoreData()
         
-        // cell 그리는 코드 추가 필요
-        return UITableViewCell()
+        
+        cell.toDoData = todoData[indexPath.row]
+        
+        cell.updateButtonPressed = { [weak self](senderCell) in
+            self?.performSegue(withIdentifier: "ToDoCell", sender: indexPath)
+        }
+        
+        cell.selectionStyle = .none
+        return cell
     }
 }
 
@@ -77,11 +86,14 @@ extension ViewController: UITableViewDelegate{
         performSegue(withIdentifier: "ToDoCell", sender: indexPath)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-//        if segue.identifier == "ToDoCell"{
-//
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "ToDoCell"{
+            let detailVC = segue.destination as! DetailViewController
+            
+            guard let indexPath = sender as? IndexPath else {return}
+            detailVC.todoData =  toDoManager.getTodoFromCoreData()[indexPath.row]
+        }
+    }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension

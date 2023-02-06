@@ -11,20 +11,39 @@ class ToDoCell: UITableViewCell {
 
     
     @IBOutlet weak var background: UIView!
-    
     @IBOutlet weak var toDoTextLabel: UILabel!
     @IBOutlet weak var dateTextLabel: UILabel!
     @IBOutlet weak var updateButton: UIButton!
     
     var toDoData: MemoData? {
         didSet{
-            configureUIWithData()
+            configureUIwithData()
         }
     }
+    
+    var updateButtonPressed: (ToDoCell) -> Void = { (sender) in }
+    
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+    }
+    
+    
+    @IBAction func updateButtonTapped(_ sender: UIButton) {
+        updateButtonPressed(self)
+    }
+    
+    func configureUIwithData() {
+        toDoTextLabel.text = toDoData?.memoText
+        dateTextLabel.text = toDoData?.dateString
+        guard let colorNum = toDoData?.color else { return }
+        let color = MyColor(rawValue: colorNum) ?? .red
+        updateButton.backgroundColor = color.buttonColor
+        background.backgroundColor = color.backgroundColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
